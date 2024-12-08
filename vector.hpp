@@ -69,10 +69,7 @@ template <typename T, std::size_t InitialCapacity = 10> class vector
         T* operator->() { return &this->data[this->pos]; }
         reference operator*() { return this->data[this->pos]; }
 
-        bool operator==(const iterator& rhs) const
-        {
-            return this->pos == rhs.pos;
-        }
+        bool operator==(const iterator& rhs) const { return this->pos == rhs.pos; }
         bool operator!=(const iterator& rhs) const { return !(*this == rhs); }
 
       private:
