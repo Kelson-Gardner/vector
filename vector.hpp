@@ -32,8 +32,11 @@ template <typename T, std::size_t InitialCapacity = 10> class vector
         }
 
         iterator(const iterator& obj) = default;
+
         iterator(iterator&& obj) noexcept = default;
+
         iterator& operator=(const iterator& rhs) = default;
+
         iterator& operator=(iterator&& rhs) = default;
 
         iterator& operator++()
@@ -67,6 +70,7 @@ template <typename T, std::size_t InitialCapacity = 10> class vector
         }
 
         T* operator->() { return &this->data[this->pos]; }
+
         reference operator*() { return this->data[this->pos]; }
 
         bool operator==(const iterator& rhs) const { return this->pos == rhs.pos; }
@@ -157,9 +161,11 @@ template <typename T, std::size_t InitialCapacity = 10> class vector
     }
 
     size_type size() const { return m_size; }
+
     size_type capacity() const { return m_capacity; }
 
     iterator begin() { return iterator(0, m_data.get(), m_size); }
+
     iterator end() { return iterator(m_size, m_data.get(), m_size); }
 
     void map(std::function<void(reference)> func)
